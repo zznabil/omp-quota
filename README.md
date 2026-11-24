@@ -1,29 +1,42 @@
-# omp-openai-quota
+# omp-quota
 
-OMP statusline extension showing live OpenAI Codex quota: Codex weekly and banked resets with the nearest expiry.
+OMP statusline extensions showing live subscription quota, one per provider. Install either or both.
+
+| Extension | Provider | Shows |
+|---|---|---|
+| `agent/extensions/openai-quota.ts` | `openai-codex` | Codex 7d, banked resets |
+| `agent/extensions/anthropic-quota.ts` | `anthropic` (Claude Pro/Max) | 5h, 7d, banked resets |
 
     OpenAI │ ↻ Codex 7d 70% · 3d 2h │ ◆ Banked resets 2 · 16d
-
-For Claude subscription quota, see [zznabil/omp-anthropic-quota](https://github.com/zznabil/omp-anthropic-quota).
+    Claude │ ⏱ 5h 95% · 2h │ ↻ 7d 99% · 2d 5h │ ◆ Banked resets 1 · 16d
 
 ## Install
 
-Requires OMP with an authenticated `openai-codex` provider. Copy the extension, then restart OMP:
+Requires OMP. Copy the extension for each provider you use, then restart OMP:
 
     mkdir -p ~/.omp/agent/extensions
-    cp agent/extensions/openai-weekly-quota.ts ~/.omp/agent/extensions/
+    cp agent/extensions/openai-quota.ts ~/.omp/agent/extensions/
+    cp agent/extensions/anthropic-quota.ts ~/.omp/agent/extensions/
 
 ## Behaviour
 
-- Runs `omp usage --provider openai-codex --json` (10 s timeout) on session start, after each turn and every 5 minutes.
-- Colour: green above 25% remaining, yellow at 25% or below, red at 10% or below.
-- Missing values show `—`; a failed usage check shows `OpenAI quota unavailable`.
-- Uses status key `openai-weekly-quota`.
+Each extension runs `omp usage --provider <id> --json` (10 s timeout) on session start, after each turn and every 5 minutes, and keeps its own status entry.
+
+| State | Status line |
+|---|---|
+| Provider has quota data | Quota windows |
+| Provider not logged in (no reports, no accounts) | Nothing; the entry is hidden |
+| Logged in, but `omp usage` reports no limits | `<Provider> │ no quota data` |
+| `omp usage` failed or timed out | `<Provider> quota unavailable` |
+
+With one subscription, only that provider's entry appears. With none, nothing appears. If an expected entry is missing, check that `omp usage --provider <id>` lists your account.
+
+Colour: green above 25% remaining, yellow at 25% or below, red at 10% or below. Model-tiered limits (for example Claude `7d:fable`) are ignored. With several accounts for one provider, the first matching limit is used.
 
 ## Test
 
-    bun test agent/extensions/openai-weekly-quota.test.ts
+    bun test agent/extensions
 
 ## History
 
-Spark limits were removed after OpenAI deprecated Spark. Earlier versions also bundled OMP defaults, Semble, and a pinned Ponytail installer. These were removed; see git history before the "reduce to OpenAI quota extension" commit.
+This repo merges the former `omp-baseline`/`omp-openai-quota` and `omp-anthropic-quota` repos. OpenAI Spark limits were removed after OpenAI deprecated Spark. Early versions of the OpenAI repo also bundled OMP defaults, Semble, and a pinned Ponytail installer; see git history.

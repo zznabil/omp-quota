@@ -1,6 +1,7 @@
 import type { ExtensionAPI, ExtensionContext } from "@oh-my-pi/pi-coding-agent";
 
-const STATUS_KEY = "openai-weekly-quota";
+const STATUS_KEY = "anthropic-quota";
+const PROVIDER = "anthropic";
 const REFRESH_MS = 5 * 60_000;
 const USAGE_TIMEOUT_MS = 10_000;
 
@@ -25,6 +26,7 @@ type UsageReport = {
 
 type UsageResponse = {
 	reports?: UsageReport[];
+	accountsWithoutUsage?: unknown[];
 };
 
 type QuotaWindow = {
@@ -33,12 +35,23 @@ type QuotaWindow = {
 };
 
 type QuotaSnapshot = {
-	codexWeekly?: QuotaWindow;
+	fiveHour?: QuotaWindow;
+	weekly?: QuotaWindow;
 	bankedResets?: {
 		availableCount: number;
 		expiresAt?: number;
 	};
 };
+
+/**
+ * absent: provider not logged in (hide the entry); nodata: logged in but no
+ * limits reported; ok: quota available; error: the usage check itself failed.
+ */
+export type QuotaResult =
+	| { kind: "ok"; quota: QuotaSnapshot }
+	| { kind: "nodata" }
+	| { kind: "absent" }
+	| { kind: "error" };
 
 function formatRemainingTime(resetsAt: number | undefined): string {
 	if (!resetsAt) return "";
@@ -54,10 +67,14 @@ function toQuotaWindow(limit: UsageLimit | undefined): QuotaWindow | undefined {
 		? { remaining: Math.round(remaining), resetsAt: limit?.window?.resetsAt }
 		: undefined;
 }
+
 export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 	const reports = response.reports ?? [];
 	const limits = reports.flatMap(report => report.limits ?? []);
-	const codexWeekly = toQuotaWindow(
+	const fiveHour = toQuotaWindow(
+		limits.find(limit => limit.scope?.windowId === "5h" && !limit.scope?.tier),
+	);
+	const weekly = toQuotaWindow(
 		limits.find(limit => limit.scope?.windowId === "7d" && !limit.scope?.tier),
 	);
 	const resetCredits = reports.find(report => report.resetCredits)?.resetCredits;
@@ -74,13 +91,20 @@ export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 					expiresAt: expirations.length > 0 ? Math.min(...expirations) : undefined,
 				}
 			: undefined;
-	const quota = { codexWeekly, bankedResets };
-	return quota.codexWeekly || quota.bankedResets ? quota : null;
+	const quota = { fiveHour, weekly, bankedResets };
+	return quota.fiveHour || quota.weekly || quota.bankedResets ? quota : null;
 }
 
-async function getQuota(): Promise<QuotaSnapshot | null> {
+export function classifyUsage(response: UsageResponse): QuotaResult {
+	const quota = parseQuota(response);
+	if (quota) return { kind: "ok", quota };
+	const hasAccounts = (response.reports?.length ?? 0) > 0 || (response.accountsWithoutUsage?.length ?? 0) > 0;
+	return hasAccounts ? { kind: "nodata" } : { kind: "absent" };
+}
+
+async function getQuota(): Promise<QuotaResult> {
 	const controller = new AbortController();
-	const process = Bun.spawn(["omp", "usage", "--provider", "openai-codex", "--json"], {
+	const process = Bun.spawn(["omp", "usage", "--provider", PROVIDER, "--json"], {
 		stdout: "pipe",
 		stderr: "pipe",
 		signal: controller.signal,
@@ -99,10 +123,10 @@ async function getQuota(): Promise<QuotaSnapshot | null> {
 			new Response(process.stdout).text(),
 			process.exited,
 		]);
-		if (exitCode !== 0) return null;
-		return parseQuota(JSON.parse(stdout) as UsageResponse);
+		if (exitCode !== 0) return { kind: "error" };
+		return classifyUsage(JSON.parse(stdout) as UsageResponse);
 	} catch {
-		return null;
+		return { kind: "error" };
 	} finally {
 		clearTimeout(timer);
 	}
@@ -116,11 +140,25 @@ export default function (pi: ExtensionAPI) {
 		if (refreshing) return;
 		refreshing = true;
 		try {
-			const quota = await getQuota();
-			if (!quota) {
-				ctx.ui.setStatus(STATUS_KEY, ctx.ui.theme.fg("muted", "OpenAI quota unavailable"));
+			const result = await getQuota();
+			if (result.kind === "absent") {
+				ctx.ui.setStatus(STATUS_KEY, undefined);
 				return;
 			}
+			if (result.kind === "error") {
+				ctx.ui.setStatus(STATUS_KEY, ctx.ui.theme.fg("muted", "Claude quota unavailable"));
+				return;
+			}
+			if (result.kind === "nodata") {
+				ctx.ui.setStatus(
+					STATUS_KEY,
+					[ctx.ui.theme.fg("accent", "Claude"), ctx.ui.theme.fg("muted", "no quota data")].join(
+						ctx.ui.theme.fg("muted", " │ "),
+					),
+				);
+				return;
+			}
+			const quota = result.quota;
 			const renderLimit = (icon: string, label: string, window: QuotaWindow | undefined) => {
 				const prefix = [ctx.ui.theme.fg("accent", icon), ctx.ui.theme.fg("muted", label)].join(" ");
 				if (!window) return `${prefix} ${ctx.ui.theme.fg("muted", "—")}`;
@@ -138,8 +176,9 @@ export default function (pi: ExtensionAPI) {
 			const bankedResets = quota.bankedResets;
 			const resetExpiry = formatRemainingTime(bankedResets?.expiresAt);
 			const text = [
-				ctx.ui.theme.fg("accent", "OpenAI"),
-				renderLimit("↻", "Codex 7d", quota.codexWeekly),
+				ctx.ui.theme.fg("accent", "Claude"),
+				renderLimit("⏱", "5h", quota.fiveHour),
+				renderLimit("↻", "7d", quota.weekly),
 				[
 					ctx.ui.theme.fg("accent", "◆"),
 					ctx.ui.theme.fg("muted", "Banked resets"),
@@ -153,7 +192,7 @@ export default function (pi: ExtensionAPI) {
 			].join(separator);
 			ctx.ui.setStatus(STATUS_KEY, text);
 		} catch {
-			ctx.ui.setStatus(STATUS_KEY, ctx.ui.theme.fg("muted", "OpenAI quota unavailable"));
+			ctx.ui.setStatus(STATUS_KEY, ctx.ui.theme.fg("muted", "Claude quota unavailable"));
 		} finally {
 			refreshing = false;
 		}
@@ -169,7 +208,7 @@ export default function (pi: ExtensionAPI) {
 	});
 
 	pi.on("session_shutdown", async (_event, ctx) => {
-		if (refreshTimer) clearInterval(refreshTimer);
+		clearInterval(refreshTimer);
 		refreshTimer = undefined;
 		ctx.ui.setStatus(STATUS_KEY, undefined);
 	});

@@ -1,16 +1,12 @@
 import { describe, expect, test } from "bun:test";
-import { parseQuota } from "./openai-weekly-quota";
+import { classifyUsage, parseQuota } from "./openai-quota";
 
 const usage = {
 	reports: [
 		{
 			limits: [
 				{ scope: { windowId: "7d" }, amount: { remaining: 70 }, window: { resetsAt: 7000 } },
-				{
-					scope: { windowId: "7d", tier: "other" },
-					amount: { remaining: 1 },
-					window: { resetsAt: 8000 },
-				},
+				{ scope: { windowId: "7d", tier: "other" }, amount: { remaining: 1 }, window: { resetsAt: 8000 } },
 			],
 			resetCredits: {
 				availableCount: 2,
@@ -39,7 +35,25 @@ describe("parseQuota", () => {
 		});
 	});
 
-	test("returns unavailable when no supported values exist", () => {
+	test("returns null when no supported values exist", () => {
 		expect(parseQuota({ reports: [{ limits: [] }] })).toBeNull();
+	});
+});
+
+describe("classifyUsage", () => {
+	test("hides the entry when the provider has no accounts", () => {
+		expect(classifyUsage({ reports: [], accountsWithoutUsage: [] })).toEqual({ kind: "absent" });
+		expect(classifyUsage({})).toEqual({ kind: "absent" });
+	});
+
+	test("reports no data for a logged-in account without limits", () => {
+		expect(classifyUsage({ reports: [], accountsWithoutUsage: [{ provider: "openai-codex" }] })).toEqual({
+			kind: "nodata",
+		});
+		expect(classifyUsage({ reports: [{ limits: [] }] })).toEqual({ kind: "nodata" });
+	});
+
+	test("returns the quota when limits exist", () => {
+		expect(classifyUsage(usage).kind).toBe("ok");
 	});
 });
