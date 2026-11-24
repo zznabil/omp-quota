@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 32" width="640" height="32" role="img" aria-label="OMP extension, OpenAI Codex, Claude Pro and Max, Bun, TypeScript">
+  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">
+    <rect x="18" y="4" width="128" height="24" rx="12" fill="#1f6feb"/>
+    <text x="82" y="20">OMP extension</text>
+    <rect x="156" y="4" width="120" height="24" rx="12" fill="#10a37f"/>
+    <text x="216" y="20">OpenAI Codex</text>
+    <rect x="286" y="4" width="152" height="24" rx="12" fill="#c15f3c"/>
+    <text x="362" y="20">Claude Pro | Max</text>
+    <rect x="448" y="4" width="60" height="24" rx="12" fill="#1c1c22"/>
+    <text x="478" y="20">Bun</text>
+    <rect x="518" y="4" width="104" height="24" rx="12" fill="#3178c6"/>
+    <text x="570" y="20">TypeScript</text>
+  </g>
+</svg>

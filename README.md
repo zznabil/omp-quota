@@ -3,11 +3,7 @@
 <img src="assets/banner.svg" alt="omp-quota: OpenAI Codex and Claude quota in the OMP statusline" width="100%">
 
 <p align="center">
-  <img alt="OMP extension" src="https://img.shields.io/badge/OMP-extension-58a6ff?style=flat-square">
-  <img alt="OpenAI Codex" src="https://img.shields.io/badge/OpenAI-Codex-10a37f?style=flat-square">
-  <img alt="Claude" src="https://img.shields.io/badge/Claude-Pro%20%7C%20Max-d97757?style=flat-square">
-  <img alt="Bun" src="https://img.shields.io/badge/runtime-Bun-black?style=flat-square">
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square">
+  <img src="assets/badges.svg" alt="OMP extension, OpenAI Codex, Claude Pro and Max, Bun, TypeScript" width="640">
 </p>
 
 Live subscription quota in your OMP statusline. Install either extension or both.
