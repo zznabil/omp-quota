@@ -20,10 +20,12 @@
   <g font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="20" xml:space="preserve">
     <text x="90" y="246"><tspan fill="#58a6ff">OpenAI</tspan><tspan fill="#8b949e"> │ </tspan><tspan fill="#58a6ff">↻</tspan><tspan fill="#8b949e"> Codex 7d </tspan><tspan fill="#3fb950">70%</tspan><tspan fill="#8b949e"> · 3d 2h │ </tspan><tspan fill="#58a6ff">◆</tspan><tspan fill="#8b949e"> Banked resets </tspan><tspan fill="#3fb950">2</tspan><tspan fill="#8b949e"> · 16d</tspan></text>
     <text x="90" y="284"><tspan fill="#58a6ff">Claude</tspan><tspan fill="#8b949e"> │ </tspan><tspan fill="#58a6ff">⏱</tspan><tspan fill="#8b949e"> 5h </tspan><tspan fill="#d29922">22%</tspan><tspan fill="#8b949e"> · 1h │ </tspan><tspan fill="#58a6ff">↻</tspan><tspan fill="#8b949e"> 7d </tspan><tspan fill="#3fb950">99%</tspan><tspan fill="#8b949e"> · 2d 5h │ </tspan><tspan fill="#58a6ff">◆</tspan><tspan fill="#8b949e"> Banked resets </tspan><tspan fill="#3fb950">1</tspan><tspan fill="#8b949e"> · 16d</tspan></text>
-    <text x="90" y="322"><tspan fill="#58a6ff">Claude</tspan><tspan fill="#8b949e"> │ </tspan><tspan fill="#58a6ff">⏱</tspan><tspan fill="#8b949e"> 5h </tspan><tspan fill="#f85149">8%</tspan><tspan fill="#8b949e"> · 1h │ </tspan><tspan fill="#58a6ff">↻</tspan><tspan fill="#8b949e"> 7d </tspan><tspan fill="#3fb950">64%</tspan><tspan fill="#8b949e"> · 4d 3h │ </tspan><tspan fill="#58a6ff">◆</tspan><tspan fill="#8b949e"> Banked resets 0</tspan></text>
+    <circle cx="96" cy="316" r="6" fill="#3fb950"/><text x="110" y="322" fill="#8b949e">above 25%</text>
+    <circle cx="256" cy="316" r="6" fill="#d29922"/><text x="270" y="322" fill="#8b949e">25% or below</text>
+    <circle cx="450" cy="316" r="6" fill="#f85149"/><text x="464" y="322" fill="#8b949e">10% or below</text>
   </g>
 
   <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="16" fill="#8b949e">
-    <text x="60" y="378">Green above 25% · yellow at 25% or below · red at 10% or below · hidden when a provider isn't subscribed</text>
+    <text x="60" y="378">An entry is hidden when its provider isn't subscribed.</text>
   </g>
 </svg>
