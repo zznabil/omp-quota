@@ -1,4 +1,4 @@
-# omp-baseline
+# omp-openai-quota
 
 OMP statusline extension showing live OpenAI Codex quota: Codex weekly and banked resets with the nearest expiry.
 
