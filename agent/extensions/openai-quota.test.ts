@@ -29,6 +29,26 @@ describe("parseQuota", () => {
 		});
 	});
 
+	test("auto-detects the untiered 5h window on plans below Pro and ignores tiered 5h limits", () => {
+		const lowerPlan = {
+			reports: [
+				{
+					limits: [
+						{ scope: { windowId: "5h" }, amount: { remaining: 91.4 }, window: { resetsAt: 5000 } },
+						{ scope: { windowId: "5h", tier: "other" }, amount: { remaining: 3 }, window: { resetsAt: 6000 } },
+						{ scope: { windowId: "7d" }, amount: { remaining: 70 }, window: { resetsAt: 7000 } },
+					],
+				},
+			],
+		};
+		expect(parseQuota(lowerPlan)).toEqual({
+			codexFiveHour: { remaining: 91, resetsAt: 5000 },
+			codexWeekly: { remaining: 70, resetsAt: 7000 },
+			bankedResets: undefined,
+		});
+		expect(parseQuota(usage)?.codexFiveHour).toBeUndefined();
+	});
+
 	test("keeps zero banked resets available to render", () => {
 		expect(parseQuota({ reports: [{ resetCredits: { availableCount: 0, credits: [] } }] })).toEqual({
 			bankedResets: { availableCount: 0, expiresAt: undefined },

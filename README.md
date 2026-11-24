@@ -6,10 +6,10 @@ OMP statusline extensions showing live subscription quota, one per provider. Ins
 
 | Extension | Provider | Shows |
 |---|---|---|
-| `agent/extensions/openai-quota.ts` | `openai-codex` | Codex 7d, banked resets |
+| `agent/extensions/openai-quota.ts` | `openai-codex` | Codex 5h (when your plan has it, i.e. below Pro), Codex 7d, banked resets |
 | `agent/extensions/anthropic-quota.ts` | `anthropic` (Claude Pro/Max) | 5h, 7d, banked resets |
 
-    OpenAI │ ↻ Codex 7d 70% · 3d 2h │ ◆ Banked resets 2 · 16d
+    OpenAI │ ⏱ Codex 5h 91% · 2h │ ↻ Codex 7d 70% · 3d 2h │ ◆ Banked resets 2 · 16d
     Claude │ ⏱ 5h 95% · 2h │ ↻ 7d 99% · 2d 5h │ ◆ Banked resets 1 · 16d
 
 ## Install

@@ -35,6 +35,7 @@ type QuotaWindow = {
 };
 
 type QuotaSnapshot = {
+	codexFiveHour?: QuotaWindow;
 	codexWeekly?: QuotaWindow;
 	bankedResets?: {
 		availableCount: number;
@@ -70,6 +71,9 @@ function toQuotaWindow(limit: UsageLimit | undefined): QuotaWindow | undefined {
 export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 	const reports = response.reports ?? [];
 	const limits = reports.flatMap(report => report.limits ?? []);
+	const codexFiveHour = toQuotaWindow(
+		limits.find(limit => limit.scope?.windowId === "5h" && !limit.scope?.tier),
+	);
 	const codexWeekly = toQuotaWindow(
 		limits.find(limit => limit.scope?.windowId === "7d" && !limit.scope?.tier),
 	);
@@ -87,8 +91,8 @@ export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 					expiresAt: expirations.length > 0 ? Math.min(...expirations) : undefined,
 				}
 			: undefined;
-	const quota = { codexWeekly, bankedResets };
-	return quota.codexWeekly || quota.bankedResets ? quota : null;
+	const quota = { codexFiveHour, codexWeekly, bankedResets };
+	return quota.codexFiveHour || quota.codexWeekly || quota.bankedResets ? quota : null;
 }
 
 export function classifyUsage(response: UsageResponse): QuotaResult {
@@ -173,6 +177,7 @@ export default function (pi: ExtensionAPI) {
 			const resetExpiry = formatRemainingTime(bankedResets?.expiresAt);
 			const text = [
 				ctx.ui.theme.fg("accent", "OpenAI"),
+				...(quota.codexFiveHour ? [renderLimit("⏱", "Codex 5h", quota.codexFiveHour)] : []),
 				renderLimit("↻", "Codex 7d", quota.codexWeekly),
 				[
 					ctx.ui.theme.fg("accent", "◆"),
