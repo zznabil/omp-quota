@@ -1,31 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" width="1200" height="230" role="img" aria-labelledby="t">
-  <title id="t">How it works: omp usage, parse, statusline</title>
-  <defs>
-    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
-    </marker>
-  </defs>
-  <rect width="1200" height="230" rx="16" fill="#0d1117"/>
-  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
-    <text x="40" y="52" font-size="24" font-weight="700" fill="#e6edf3">How it works</text>
-
-    <rect x="40" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
-    <text x="64" y="112" font-size="18" font-weight="700" fill="#e6edf3">1  Ask OMP</text>
-    <text x="64" y="140" font-size="13" font-family="Consolas,'Cascadia Mono',Menlo,monospace" fill="#8b949e">omp usage --provider … --json</text>
-
-    <rect x="440" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
-    <text x="464" y="112" font-size="18" font-weight="700" fill="#e6edf3">2  Read the limits</text>
-    <text x="464" y="140" font-size="14" fill="#8b949e">5h · 7d · banked resets</text>
-
-    <rect x="840" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
-    <text x="864" y="112" font-size="18" font-weight="700" fill="#e6edf3">3  Update the statusline</text>
-    <text x="864" y="140" font-size="14" fill="#8b949e">One entry per provider</text>
-
-    <line x1="364" y1="120" x2="436" y2="120" stroke="#58a6ff" stroke-width="2" marker-end="url(#a)"/>
-    <line x1="764" y1="120" x2="836" y2="120" stroke="#58a6ff" stroke-width="2" marker-end="url(#a)"/>
-
-    <g font-size="14" fill="#8b949e" text-anchor="middle">
-      <text x="600" y="204"><tspan fill="#58a6ff">↻</tspan> on session start  ·  after every turn  ·  every 5 min  ·  10 s timeout</text>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" width="1200" height="250" role="img" aria-labelledby="t">
+<title id="t">How it works: omp usage, read the limits, update the statusline</title>
+<rect width="1200" height="250" fill="#0f1210"/>
+<text x="40" y="56" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="26" font-weight="700" fill="#e4ff3d" text-anchor="start" xml:space="preserve">How it works</text>
+<path d="M40,87.4 L66.7,84.9 L93.3,86.8 L120,81.8 L146.7,84.9 L173.3,81.4 L200,86.8 L226.7,81.2 L253.3,85.4 L280,85 L306.7,83.2 L333.3,83.8 L360,83.1 L362.3,103.2 L361.5,122.4 L359.5,141.6 L360.4,160.8 L360,182 L333.3,176.6 L306.7,179.2 L280,183.5 L253.3,180.1 L226.7,178.5 L200,179.8 L173.3,182.2 L146.7,178.7 L120,179.6 L93.3,180.8 L66.7,178.2 L40,181.7 L38.2,160.8 L43.3,141.6 L43.5,122.4 L41.7,103.2Z" transform="translate(4 4)" fill="#050706"/><path d="M40,87.4 L66.7,84.9 L93.3,86.8 L120,81.8 L146.7,84.9 L173.3,81.4 L200,86.8 L226.7,81.2 L253.3,85.4 L280,85 L306.7,83.2 L333.3,83.8 L360,83.1 L362.3,103.2 L361.5,122.4 L359.5,141.6 L360.4,160.8 L360,182 L333.3,176.6 L306.7,179.2 L280,183.5 L253.3,180.1 L226.7,178.5 L200,179.8 L173.3,182.2 L146.7,178.7 L120,179.6 L93.3,180.8 L66.7,178.2 L40,181.7 L38.2,160.8 L43.3,141.6 L43.5,122.4 L41.7,103.2Z" fill="#e4ff3d"/>
+<text x="62" y="124" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">1  Ask OMP</text>
+<text x="62" y="154" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">omp usage --provider … --json</text>
+<path d="M440,83.1 L466.7,86.2 L493.3,84.1 L520,81 L546.7,81.6 L573.3,85.9 L600,86.8 L626.7,86.6 L653.3,87.5 L680,81.8 L706.7,80.6 L733.3,87.4 L760,86.1 L760.4,103.2 L762.9,122.4 L762,141.6 L762.9,160.8 L760,180.1 L733.3,178.7 L706.7,180.6 L680,182.9 L653.3,179.7 L626.7,177.7 L600,179.4 L573.3,177.8 L546.7,182.8 L520,178.1 L493.3,177.8 L466.7,177.8 L440,178.4 L438.5,160.8 L439.6,141.6 L442.2,122.4 L437,103.2Z" transform="translate(4 4)" fill="#050706"/><path d="M440,83.1 L466.7,86.2 L493.3,84.1 L520,81 L546.7,81.6 L573.3,85.9 L600,86.8 L626.7,86.6 L653.3,87.5 L680,81.8 L706.7,80.6 L733.3,87.4 L760,86.1 L760.4,103.2 L762.9,122.4 L762,141.6 L762.9,160.8 L760,180.1 L733.3,178.7 L706.7,180.6 L680,182.9 L653.3,179.7 L626.7,177.7 L600,179.4 L573.3,177.8 L546.7,182.8 L520,178.1 L493.3,177.8 L466.7,177.8 L440,178.4 L438.5,160.8 L439.6,141.6 L442.2,122.4 L437,103.2Z" fill="#e4ff3d"/>
+<text x="462" y="124" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">2  Read the limits</text>
+<text x="462" y="154" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">5h · 7d · banked resets</text>
+<path d="M840,81.5 L866.7,83.2 L893.3,81.5 L920,87.2 L946.7,83.7 L973.3,81.5 L1000,83.8 L1026.7,84.8 L1053.3,81 L1080,80.8 L1106.7,85.7 L1133.3,86.3 L1160,87.3 L1156.8,103.2 L1159.2,122.4 L1162.9,141.6 L1162.4,160.8 L1160,177.2 L1133.3,181.9 L1106.7,179.6 L1080,180.6 L1053.3,177.6 L1026.7,176.9 L1000,181.4 L973.3,179.3 L946.7,178.1 L920,177.7 L893.3,180.2 L866.7,178.7 L840,178.8 L843.2,160.8 L837.4,141.6 L840.1,122.4 L837.7,103.2Z" transform="translate(4 4)" fill="#050706"/><path d="M840,81.5 L866.7,83.2 L893.3,81.5 L920,87.2 L946.7,83.7 L973.3,81.5 L1000,83.8 L1026.7,84.8 L1053.3,81 L1080,80.8 L1106.7,85.7 L1133.3,86.3 L1160,87.3 L1156.8,103.2 L1159.2,122.4 L1162.9,141.6 L1162.4,160.8 L1160,177.2 L1133.3,181.9 L1106.7,179.6 L1080,180.6 L1053.3,177.6 L1026.7,176.9 L1000,181.4 L973.3,179.3 L946.7,178.1 L920,177.7 L893.3,180.2 L866.7,178.7 L840,178.8 L843.2,160.8 L837.4,141.6 L840.1,122.4 L837.7,103.2Z" fill="#e4ff3d"/>
+<text x="862" y="124" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="20" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">3  Update the statusline</text>
+<text x="862" y="154" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">One entry per provider</text>
+<polygon points="379,125 397,135 379,145 388,135" fill="#050706"/>
+<polygon points="376,122 394,132 376,142 385,132" fill="#e4ff3d"/>
+<polygon points="405,125 423,135 405,145 414,135" fill="#050706"/>
+<polygon points="402,122 420,132 402,142 411,132" fill="#e4ff3d"/>
+<polygon points="779,125 797,135 779,145 788,135" fill="#050706"/>
+<polygon points="776,122 794,132 776,142 785,132" fill="#e4ff3d"/>
+<polygon points="805,125 823,135 805,145 814,135" fill="#050706"/>
+<polygon points="802,122 820,132 802,142 811,132" fill="#e4ff3d"/>
+<text x="600" y="220" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="15" font-weight="400" fill="#e4ff3d" opacity="0.75" text-anchor="middle" xml:space="preserve">on session start  ·  after every turn  ·  every 5 min  ·  10 s timeout</text>
 </svg>

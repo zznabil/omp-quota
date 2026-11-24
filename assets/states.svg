@@ -1,35 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-labelledby="t">
-  <title id="t">What the statusline shows in each state</title>
-  <rect width="1200" height="440" rx="16" fill="#0d1117"/>
-  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
-    <text x="40" y="52" font-size="24" font-weight="700" fill="#e6edf3">What you see</text>
-
-    <rect x="40" y="76" width="540" height="162" rx="12" fill="#161b22" stroke="#30363d"/>
-    <circle cx="68" cy="106" r="7" fill="#3fb950"/>
-    <text x="86" y="112" font-size="19" font-weight="700" fill="#e6edf3">Subscribed</text>
-    <text x="64" y="138" font-size="14" fill="#8b949e">Quota windows appear</text>
-    <rect x="64" y="158" width="492" height="56" rx="8" fill="#010409" stroke="#30363d"/>
-    <text x="80" y="192" font-size="17" font-family="Consolas,'Cascadia Mono',Menlo,monospace" xml:space="preserve"><tspan fill="#58a6ff">Claude</tspan><tspan fill="#8b949e"> │ </tspan><tspan fill="#58a6ff">⏱</tspan><tspan fill="#8b949e"> 5h </tspan><tspan fill="#3fb950">95%</tspan><tspan fill="#8b949e"> · 2h │ </tspan><tspan fill="#58a6ff">↻</tspan><tspan fill="#8b949e"> 7d </tspan><tspan fill="#3fb950">99%</tspan></text>
-
-    <rect x="620" y="76" width="540" height="162" rx="12" fill="#161b22" stroke="#30363d"/>
-    <circle cx="648" cy="106" r="7" fill="#8b949e"/>
-    <text x="666" y="112" font-size="19" font-weight="700" fill="#e6edf3">Not logged in</text>
-    <text x="644" y="138" font-size="14" fill="#8b949e">The entry is hidden</text>
-    <rect x="644" y="158" width="492" height="56" rx="8" fill="none" stroke="#30363d" stroke-dasharray="6 6"/>
-    <text x="890" y="192" font-size="16" fill="#8b949e" text-anchor="middle" font-style="italic">nothing shown</text>
-
-    <rect x="40" y="258" width="540" height="162" rx="12" fill="#161b22" stroke="#30363d"/>
-    <circle cx="68" cy="288" r="7" fill="#d29922"/>
-    <text x="86" y="294" font-size="19" font-weight="700" fill="#e6edf3">Logged in, no limits reported</text>
-    <text x="64" y="320" font-size="14" fill="#8b949e">For example a plan without usage data</text>
-    <rect x="64" y="340" width="492" height="56" rx="8" fill="#010409" stroke="#30363d"/>
-    <text x="80" y="374" font-size="17" font-family="Consolas,'Cascadia Mono',Menlo,monospace" xml:space="preserve"><tspan fill="#58a6ff">OpenAI</tspan><tspan fill="#8b949e"> │ no quota data</tspan></text>
-
-    <rect x="620" y="258" width="540" height="162" rx="12" fill="#161b22" stroke="#30363d"/>
-    <circle cx="648" cy="288" r="7" fill="#f85149"/>
-    <text x="666" y="294" font-size="19" font-weight="700" fill="#e6edf3">Check failed or timed out</text>
-    <text x="644" y="320" font-size="14" fill="#8b949e">Shown only for real failures</text>
-    <rect x="644" y="340" width="492" height="56" rx="8" fill="#010409" stroke="#30363d"/>
-    <text x="660" y="374" font-size="17" font-family="Consolas,'Cascadia Mono',Menlo,monospace" fill="#8b949e">OpenAI quota unavailable</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 490" width="1200" height="490" role="img" aria-labelledby="t">
+<title id="t">What the statusline shows in each state</title>
+<rect width="1200" height="490" fill="#0f1210"/>
+<text x="40" y="56" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="26" font-weight="700" fill="#e4ff3d" text-anchor="start" xml:space="preserve">What you see</text>
+<path d="M40,82.7 L73.8,85.8 L107.5,84.4 L141.2,82.4 L175,86.6 L208.8,82 L242.5,84.8 L276.2,85.3 L310,84.7 L343.8,86.3 L377.5,86.8 L411.2,82.4 L445,85.4 L478.8,83.2 L512.5,85.4 L546.2,86.7 L580,83.2 L578.8,118 L579.3,152 L579.7,186 L578.2,220 L580,253.7 L546.2,253.2 L512.5,251.4 L478.8,256.7 L445,256 L411.2,253.8 L377.5,252.9 L343.8,255.2 L310,254.1 L276.2,254.5 L242.5,251.1 L208.8,254.2 L175,256 L141.2,252.9 L107.5,255.1 L73.8,253.4 L40,256.5 L39.2,220 L39.8,186 L40.6,152 L39.4,118Z" transform="translate(4 4)" fill="#050706"/><path d="M40,82.7 L73.8,85.8 L107.5,84.4 L141.2,82.4 L175,86.6 L208.8,82 L242.5,84.8 L276.2,85.3 L310,84.7 L343.8,86.3 L377.5,86.8 L411.2,82.4 L445,85.4 L478.8,83.2 L512.5,85.4 L546.2,86.7 L580,83.2 L578.8,118 L579.3,152 L579.7,186 L578.2,220 L580,253.7 L546.2,253.2 L512.5,251.4 L478.8,256.7 L445,256 L411.2,253.8 L377.5,252.9 L343.8,255.2 L310,254.1 L276.2,254.5 L242.5,251.1 L208.8,254.2 L175,256 L141.2,252.9 L107.5,255.1 L73.8,253.4 L40,256.5 L39.2,220 L39.8,186 L40.6,152 L39.4,118Z" fill="#e4ff3d"/>
+<text x="62" y="124" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="21" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">Subscribed</text>
+<text x="62" y="150" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">Quota windows appear</text>
+<rect x="62" y="172" width="496" height="50" fill="#0f1210"/>
+<text x="78" y="204" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="17" font-weight="400" fill="#e4ff3d" text-anchor="start" xml:space="preserve">Claude │ ⏱ 5h 95% · 2h │ ↻ 7d 99%</text>
+<rect x="620" y="84" width="540" height="170" fill="none" stroke="#e4ff3d" stroke-opacity=".5" stroke-width="2" stroke-dasharray="8 7"/>
+<text x="642" y="124" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="21" font-weight="700" fill="#e4ff3d" text-anchor="start" xml:space="preserve">Not logged in</text>
+<text x="642" y="150" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#e4ff3d" opacity="0.75" text-anchor="start" xml:space="preserve">The entry is hidden</text>
+<text x="890" y="206" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="18" font-weight="400" fill="#e4ff3d" opacity="0.6" text-anchor="middle" xml:space="preserve">nothing shown</text>
+<path d="M40,284.2 L73.8,284.6 L107.5,288.8 L141.2,284.1 L175,285 L208.8,288.6 L242.5,287.2 L276.2,286.7 L310,284.6 L343.8,284.8 L377.5,286.2 L411.2,283.2 L445,288 L478.8,284.3 L512.5,286.6 L546.2,286.3 L580,286 L579.9,320 L578.2,354 L580,388 L580.7,422 L580,458.2 L546.2,453.8 L512.5,458.6 L478.8,456.4 L445,454 L411.2,453.3 L377.5,456.5 L343.8,457.3 L310,456.8 L276.2,458.1 L242.5,453.4 L208.8,454.1 L175,456.6 L141.2,453.2 L107.5,455.9 L73.8,453.9 L40,457.8 L42.1,422 L40.1,388 L40.3,354 L40.8,320Z" transform="translate(4 4)" fill="#050706"/><path d="M40,284.2 L73.8,284.6 L107.5,288.8 L141.2,284.1 L175,285 L208.8,288.6 L242.5,287.2 L276.2,286.7 L310,284.6 L343.8,284.8 L377.5,286.2 L411.2,283.2 L445,288 L478.8,284.3 L512.5,286.6 L546.2,286.3 L580,286 L579.9,320 L578.2,354 L580,388 L580.7,422 L580,458.2 L546.2,453.8 L512.5,458.6 L478.8,456.4 L445,454 L411.2,453.3 L377.5,456.5 L343.8,457.3 L310,456.8 L276.2,458.1 L242.5,453.4 L208.8,454.1 L175,456.6 L141.2,453.2 L107.5,455.9 L73.8,453.9 L40,457.8 L42.1,422 L40.1,388 L40.3,354 L40.8,320Z" fill="#e4ff3d"/>
+<text x="62" y="326" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="21" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">Logged in, no limits reported</text>
+<text x="62" y="352" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">For example a plan without usage data</text>
+<rect x="62" y="374" width="496" height="50" fill="#0f1210"/>
+<text x="78" y="406" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="17" font-weight="400" fill="#e4ff3d" text-anchor="start" xml:space="preserve">OpenAI │ no quota data</text>
+<path d="M620,286.7 L653.8,287.8 L687.5,284.7 L721.2,283.9 L755,285.3 L788.8,284.6 L822.5,284.6 L856.2,285.9 L890,285 L923.8,288.8 L957.5,286.1 L991.2,283.9 L1025,287.4 L1058.8,284.6 L1092.5,287.7 L1126.2,288.5 L1160,283.8 L1159.8,320 L1158.1,354 L1158.9,388 L1160.5,422 L1160,454 L1126.2,455 L1092.5,457.6 L1058.8,454.6 L1025,454.1 L991.2,453.9 L957.5,458.6 L923.8,454.9 L890,454.7 L856.2,456.9 L822.5,456.5 L788.8,454.9 L755,458.7 L721.2,454.9 L687.5,458.6 L653.8,455.5 L620,457.1 L620.9,422 L617.5,388 L617.9,354 L617.4,320Z" transform="translate(4 4)" fill="#050706"/><path d="M620,286.7 L653.8,287.8 L687.5,284.7 L721.2,283.9 L755,285.3 L788.8,284.6 L822.5,284.6 L856.2,285.9 L890,285 L923.8,288.8 L957.5,286.1 L991.2,283.9 L1025,287.4 L1058.8,284.6 L1092.5,287.7 L1126.2,288.5 L1160,283.8 L1159.8,320 L1158.1,354 L1158.9,388 L1160.5,422 L1160,454 L1126.2,455 L1092.5,457.6 L1058.8,454.6 L1025,454.1 L991.2,453.9 L957.5,458.6 L923.8,454.9 L890,454.7 L856.2,456.9 L822.5,456.5 L788.8,454.9 L755,458.7 L721.2,454.9 L687.5,458.6 L653.8,455.5 L620,457.1 L620.9,422 L617.5,388 L617.9,354 L617.4,320Z" fill="#e4ff3d"/>
+<text x="642" y="326" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="21" font-weight="700" fill="#0f1210" text-anchor="start" xml:space="preserve">Check failed or timed out</text>
+<text x="642" y="352" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#0f1210" text-anchor="start" xml:space="preserve">Shown only for real failures</text>
+<rect x="642" y="374" width="496" height="50" fill="#0f1210"/>
+<text x="658" y="406" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="17" font-weight="400" fill="#e4ff3d" opacity="0.6" text-anchor="start" xml:space="preserve">OpenAI quota unavailable</text>
 </svg>
