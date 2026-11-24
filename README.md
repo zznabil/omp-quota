@@ -33,7 +33,18 @@ Each extension runs `omp usage --provider <id> --json` (10 s timeout) on session
 
 With one subscription, only that provider's entry appears. With none, nothing appears. If an expected entry is missing, check that `omp usage --provider <id>` lists your account.
 
-Colour: green above 25% remaining, yellow at 25% or below, red at 10% or below. Model-tiered limits (for example Claude `7d:fable`) are ignored. With several accounts for one provider, the first matching limit is used.
+Colour: green above 25% remaining, yellow at 25% or below, red at 10% or below.
+
+## Supported providers and limits
+
+- **Providers:** only OpenAI Codex (`openai-codex`) and Claude (`anthropic`). Nothing else is read. To add another provider, copy one extension file, change the provider id, status key, labels and the limits it reads. Each extension is self-contained, with no shared module.
+- **Accounts:** one account per provider. With several accounts for the same provider, the first matching limit is shown and accounts are not combined. `omp usage` lists every account.
+- **Windows read:**
+  - OpenAI: the untiered `5h` limit (shown only when the plan reports one) and the untiered `7d` limit.
+  - Claude: the untiered `5h` and `7d` limits.
+  - Limits with a tier, such as Claude `7d:fable` and the retired Spark limits, are ignored.
+- **Banked resets:** the count of available reset credits and the nearest expiry, taken from the first report that has them.
+- **Not verified:** the OpenAI `5h` match assumes an untiered `windowId: "5h"` limit and has not been checked against a real below-Pro account. OpenAI parsing is covered by unit tests only, not live data.
 
 ## Test
 
