@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" role="img" aria-labelledby="t">
+  <title id="t">Supported providers: OpenAI Codex and Claude</title>
+  <rect width="1200" height="280" rx="16" fill="#0d1117"/>
+  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
+    <text x="40" y="52" font-size="24" font-weight="700" fill="#e6edf3">Two providers, one entry each</text>
+
+    <rect x="40" y="76" width="540" height="164" rx="12" fill="#161b22" stroke="#30363d"/>
+    <circle cx="76" cy="116" r="16" fill="#10a37f"/>
+    <text x="76" y="122" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">O</text>
+    <text x="104" y="114" font-size="22" font-weight="700" fill="#e6edf3">OpenAI Codex</text>
+    <text x="104" y="134" font-size="14" font-family="Consolas,'Cascadia Mono',Menlo,monospace" fill="#8b949e">openai-codex</text>
+    <g font-size="16" fill="#e6edf3">
+      <rect x="64" y="158" width="150" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="139" y="181" text-anchor="middle"><tspan fill="#58a6ff">⏱</tspan> Codex 5h</text>
+      <rect x="226" y="158" width="130" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="291" y="181" text-anchor="middle"><tspan fill="#58a6ff">↻</tspan> Codex 7d</text>
+      <rect x="368" y="158" width="172" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="454" y="181" text-anchor="middle"><tspan fill="#58a6ff">◆</tspan> Banked resets</text>
+    </g>
+    <text x="64" y="224" font-size="14" fill="#8b949e">5h appears on plans below Pro</text>
+
+    <rect x="620" y="76" width="540" height="164" rx="12" fill="#161b22" stroke="#30363d"/>
+    <circle cx="656" cy="116" r="16" fill="#d97757"/>
+    <text x="656" y="122" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">C</text>
+    <text x="684" y="114" font-size="22" font-weight="700" fill="#e6edf3">Claude</text>
+    <text x="684" y="134" font-size="14" font-family="Consolas,'Cascadia Mono',Menlo,monospace" fill="#8b949e">anthropic</text>
+    <g font-size="16" fill="#e6edf3">
+      <rect x="644" y="158" width="96" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="692" y="181" text-anchor="middle"><tspan fill="#58a6ff">⏱</tspan> 5h</text>
+      <rect x="752" y="158" width="96" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="800" y="181" text-anchor="middle"><tspan fill="#58a6ff">↻</tspan> 7d</text>
+      <rect x="860" y="158" width="172" height="36" rx="18" fill="#0d1117" stroke="#58a6ff"/>
+      <text x="946" y="181" text-anchor="middle"><tspan fill="#58a6ff">◆</tspan> Banked resets</text>
+    </g>
+    <text x="644" y="224" font-size="14" fill="#8b949e">Pro and Max plans</text>
+  </g>
+</svg>

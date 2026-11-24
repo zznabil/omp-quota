@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" width="1200" height="230" role="img" aria-labelledby="t">
+  <title id="t">How it works: omp usage, parse, statusline</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="230" rx="16" fill="#0d1117"/>
+  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
+    <text x="40" y="52" font-size="24" font-weight="700" fill="#e6edf3">How it works</text>
+
+    <rect x="40" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="64" y="112" font-size="18" font-weight="700" fill="#e6edf3">1  Ask OMP</text>
+    <text x="64" y="140" font-size="13" font-family="Consolas,'Cascadia Mono',Menlo,monospace" fill="#8b949e">omp usage --provider … --json</text>
+
+    <rect x="440" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="464" y="112" font-size="18" font-weight="700" fill="#e6edf3">2  Read the limits</text>
+    <text x="464" y="140" font-size="14" fill="#8b949e">5h · 7d · banked resets</text>
+
+    <rect x="840" y="78" width="320" height="84" rx="12" fill="#161b22" stroke="#30363d"/>
+    <text x="864" y="112" font-size="18" font-weight="700" fill="#e6edf3">3  Update the statusline</text>
+    <text x="864" y="140" font-size="14" fill="#8b949e">One entry per provider</text>
+
+    <line x1="364" y1="120" x2="436" y2="120" stroke="#58a6ff" stroke-width="2" marker-end="url(#a)"/>
+    <line x1="764" y1="120" x2="836" y2="120" stroke="#58a6ff" stroke-width="2" marker-end="url(#a)"/>
+
+    <g font-size="14" fill="#8b949e" text-anchor="middle">
+      <text x="600" y="204"><tspan fill="#58a6ff">↻</tspan> on session start  ·  after every turn  ·  every 5 min  ·  10 s timeout</text>
+    </g>
+  </g>
+</svg>
