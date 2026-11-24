@@ -34,8 +34,6 @@ type QuotaWindow = {
 
 type QuotaSnapshot = {
 	codexWeekly?: QuotaWindow;
-	sparkFiveHour?: QuotaWindow;
-	sparkWeekly?: QuotaWindow;
 	bankedResets?: {
 		availableCount: number;
 		expiresAt?: number;
@@ -62,12 +60,6 @@ export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 	const codexWeekly = toQuotaWindow(
 		limits.find(limit => limit.scope?.windowId === "7d" && !limit.scope?.tier),
 	);
-	const sparkFiveHour = toQuotaWindow(
-		limits.find(limit => limit.scope?.windowId === "5h" && limit.scope?.tier === "spark"),
-	);
-	const sparkWeekly = toQuotaWindow(
-		limits.find(limit => limit.scope?.windowId === "7d" && limit.scope?.tier === "spark"),
-	);
 	const resetCredits = reports.find(report => report.resetCredits)?.resetCredits;
 	const availableCount = resetCredits?.availableCount;
 	const expirations = (resetCredits?.credits ?? [])
@@ -82,8 +74,8 @@ export function parseQuota(response: UsageResponse): QuotaSnapshot | null {
 					expiresAt: expirations.length > 0 ? Math.min(...expirations) : undefined,
 				}
 			: undefined;
-	const quota = { codexWeekly, sparkFiveHour, sparkWeekly, bankedResets };
-	return quota.codexWeekly || quota.sparkFiveHour || quota.sparkWeekly || quota.bankedResets ? quota : null;
+	const quota = { codexWeekly, bankedResets };
+	return quota.codexWeekly || quota.bankedResets ? quota : null;
 }
 
 async function getQuota(): Promise<QuotaSnapshot | null> {
@@ -148,8 +140,6 @@ export default function (pi: ExtensionAPI) {
 			const text = [
 				ctx.ui.theme.fg("accent", "OpenAI"),
 				renderLimit("↻", "Codex 7d", quota.codexWeekly),
-				renderLimit("⚡", "Spark 5h", quota.sparkFiveHour),
-				renderLimit("⚡", "Spark 7d", quota.sparkWeekly),
 				[
 					ctx.ui.theme.fg("accent", "◆"),
 					ctx.ui.theme.fg("muted", "Banked resets"),

@@ -1,8 +1,8 @@
 # omp-baseline
 
-OMP statusline extension showing live OpenAI Codex quota: Codex weekly, Spark 5-hour, Spark weekly, and banked resets with the nearest expiry.
+OMP statusline extension showing live OpenAI Codex quota: Codex weekly and banked resets with the nearest expiry.
 
-    OpenAI │ ↻ Codex 7d 70% · 3d 2h │ ⚡ Spark 5h 99% · 4h │ ⚡ Spark 7d 87% · 6d 1h │ ◆ Banked resets 2 · 16d
+    OpenAI │ ↻ Codex 7d 70% · 3d 2h │ ◆ Banked resets 2 · 16d
 
 For Claude subscription quota, see [zznabil/omp-anthropic-quota](https://github.com/zznabil/omp-anthropic-quota).
 
@@ -26,4 +26,4 @@ Requires OMP with an authenticated `openai-codex` provider. Copy the extension, 
 
 ## History
 
-Earlier versions also bundled OMP defaults, Semble, and a pinned Ponytail installer. These were removed; see git history before the "reduce to OpenAI quota extension" commit.
+Spark limits were removed after OpenAI deprecated Spark. Earlier versions also bundled OMP defaults, Semble, and a pinned Ponytail installer. These were removed; see git history before the "reduce to OpenAI quota extension" commit.

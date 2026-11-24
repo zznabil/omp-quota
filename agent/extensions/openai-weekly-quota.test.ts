@@ -7,13 +7,8 @@ const usage = {
 			limits: [
 				{ scope: { windowId: "7d" }, amount: { remaining: 70 }, window: { resetsAt: 7000 } },
 				{
-					scope: { windowId: "5h", tier: "spark" },
-					amount: { remaining: 99 },
-					window: { resetsAt: 5000 },
-				},
-				{
-					scope: { windowId: "7d", tier: "spark" },
-					amount: { remaining: 87 },
+					scope: { windowId: "7d", tier: "other" },
+					amount: { remaining: 1 },
 					window: { resetsAt: 8000 },
 				},
 			],
@@ -31,11 +26,9 @@ const usage = {
 };
 
 describe("parseQuota", () => {
-	test("separates Codex, Spark, and banked reset windows", () => {
+	test("reads the untiered Codex weekly window and banked resets", () => {
 		expect(parseQuota(usage)).toEqual({
 			codexWeekly: { remaining: 70, resetsAt: 7000 },
-			sparkFiveHour: { remaining: 99, resetsAt: 5000 },
-			sparkWeekly: { remaining: 87, resetsAt: 8000 },
 			bankedResets: { availableCount: 2, expiresAt: Date.parse("2026-09-20T00:00:00Z") },
 		});
 	});
