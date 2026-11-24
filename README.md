@@ -1,10 +1,8 @@
 # omp-quota
 
-<img src="assets/banner.svg" alt="omp-quota: OpenAI Codex and Claude quota in the OMP statusline" width="100%">
+<img src="assets/statusline.png" alt="The real OMP statusline: session info on the first row, Claude quota on the second" width="587">
 
-<p align="center">
-  <img src="assets/badges.svg" alt="OMP extension, OpenAI Codex, Claude Pro and Max, Bun, TypeScript" width="640">
-</p>
+<sub>Real OMP statusline. The quota is the second row.</sub>
 
 Live subscription quota in your OMP statusline. Install either extension or both.
 
