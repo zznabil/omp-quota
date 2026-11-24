@@ -1,8 +1,8 @@
 # omp-quota
 
-<img src="assets/statusline.png" alt="The real OMP statusline: session info on the first row, Claude quota on the second" width="587">
+<img src="assets/statusline.svg" alt="omp-quota statusline rows: OpenAI Codex and Claude, each with 5h, 7d and banked resets" width="860">
 
-<sub>Real OMP statusline. The quota is the second row.</sub>
+<sub>Example rows. Numbers are made up.</sub>
 
 Live subscription quota in your OMP statusline. Install either extension or both.
 
@@ -22,7 +22,7 @@ Copy only the file for the provider you use, then restart OMP.
 
 <img src="assets/states.svg" alt="Statusline states: subscribed, not logged in, logged in with no limits, check failed" width="100%">
 
-Colour: green above 25% remaining, yellow at 25% or below, red at 10% or below.
+<img src="assets/colour.svg" alt="Colour by remaining quota: red at 10% or below, yellow at 25% or below, green above 25%" width="100%">
 
 <details>
 <summary><b>Supported providers and limits</b></summary>

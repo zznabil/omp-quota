@@ -1,17 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 230" width="1040" height="230" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 206" width="960" height="206" role="img" aria-labelledby="t">
 <title id="t">How it works: omp usage, read the limits, update the statusline</title>
-<rect width="1040" height="230" fill="#002b36"/>
-<text x="40" y="50" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="22" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">How it works</text>
-<rect x="40" y="76" width="280" height="86" fill="none" stroke="#3b5560" stroke-width="1.5"/>
-<text x="58" y="112" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="18" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">1  Ask OMP</text>
-<text x="58" y="140" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="14" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">omp usage --provider … --json</text>
-<rect x="380" y="76" width="280" height="86" fill="none" stroke="#3b5560" stroke-width="1.5"/>
-<text x="398" y="112" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="18" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">2  Read the limits</text>
-<text x="398" y="140" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">5h · 7d · banked resets</text>
-<rect x="720" y="76" width="280" height="86" fill="none" stroke="#3b5560" stroke-width="1.5"/>
-<text x="738" y="112" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="18" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">3  Update the statusline</text>
-<text x="738" y="140" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">One row per provider</text>
-<path d="M326 119 h22 m-7 -7 l7 7 l-7 7" fill="none" stroke="#5ebdec" stroke-width="2"/>
-<path d="M666 119 h22 m-7 -7 l7 7 l-7 7" fill="none" stroke="#5ebdec" stroke-width="2"/>
-<text x="520" y="204" font-family="'Segoe UI',system-ui,-apple-system,sans-serif" font-size="14" font-weight="400" fill="#707275" text-anchor="middle" xml:space="preserve">on session start  ·  after every turn  ·  every 5 min  ·  10 s timeout</text>
+<rect width="960" height="206" fill="#002b36"/>
+<rect x="20" y="20" width="920" height="34" fill="#073642"/>
+<text x="32" y="42" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="13" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">STEP</text>
+<text x="132" y="42" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="13" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">WHAT HAPPENS</text>
+<text x="552" y="42" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="13" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">RUNS</text>
+<text x="32" y="81.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">1 ASK</text>
+<text x="132" y="81.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#93a1a1" text-anchor="start" xml:space="preserve">omp usage --provider … --json</text>
+<text x="552" y="81.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">on session start</text>
+<text x="32" y="125.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">2 READ</text>
+<text x="132" y="125.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#93a1a1" text-anchor="start" xml:space="preserve">5h · 7d · banked resets</text>
+<text x="552" y="125.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">after every turn</text>
+<text x="32" y="169.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="600" fill="#5ebdec" text-anchor="start" xml:space="preserve">3 UPDATE</text>
+<text x="132" y="169.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#93a1a1" text-anchor="start" xml:space="preserve">one statusline row per provider</text>
+<text x="552" y="169.0" font-family="Consolas,'Cascadia Mono','SF Mono',Menlo,monospace" font-size="15" font-weight="400" fill="#707275" text-anchor="start" xml:space="preserve">every 5 min, 10 s timeout</text>
+<line x1="20" y1="20" x2="940" y2="20" stroke="#3b5560"/>
+<line x1="20" y1="54" x2="940" y2="54" stroke="#3b5560"/>
+<line x1="20" y1="98" x2="940" y2="98" stroke="#3b5560"/>
+<line x1="20" y1="142" x2="940" y2="142" stroke="#3b5560"/>
+<line x1="20" y1="186" x2="940" y2="186" stroke="#3b5560"/>
+<line x1="20" y1="20" x2="20" y2="186" stroke="#3b5560"/>
+<line x1="120" y1="20" x2="120" y2="186" stroke="#3b5560"/>
+<line x1="540" y1="20" x2="540" y2="186" stroke="#3b5560"/>
+<line x1="940" y1="20" x2="940" y2="186" stroke="#3b5560"/>
 </svg>
