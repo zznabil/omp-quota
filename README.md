@@ -1,5 +1,7 @@
 # omp-quota
 
+<img src="assets/banner.svg" alt="omp-quota: OpenAI Codex and Claude quota in the OMP statusline" width="100%">
+
 OMP statusline extensions showing live subscription quota, one per provider. Install either or both.
 
 | Extension | Provider | Shows |
